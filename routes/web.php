@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +45,10 @@ Route::prefix('/posts')
         Route::post('/store', 'store')->name('store');
         Route::put('/update/{id}', 'update')->name('update');
         Route::get('/delete/{id}', 'destroy')->name('delete');
+    });
+
+Route::prefix('/auth')
+    ->controller(AuthController::class)
+    ->group(function () {
+        Route::any('/login', 'login')->name('login');
     });
