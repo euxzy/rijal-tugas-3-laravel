@@ -104,7 +104,7 @@ class ProductController extends Controller
 
             $file = $request->file('image');
             $fileName = $file->hashName();
-            $file->move('image', $fileName);
+            $file->move('images/products', $fileName);
             $request->image = $fileName;
 
             $payload = Arr::prepend($payload, $request->image, 'image');
